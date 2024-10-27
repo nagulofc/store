@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="product-title">Product Details</h1>
+    </header>
+
+    <main>
+        <section id="product-info">
+            <img id="product-image" src="" alt="">
+            <h2 id="product-name"></h2>
+            <p id="product-price"></p>
+            <button id="buy-now">Buy Now</button>
+        </section>
+
+        <section id="checkout-form" style="display:none;">
+            <h2>Checkout Form</h2>
+            <form id="form" onsubmit="handleForm(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="phone">Phone No:</label>
+                <input type="text" id="phone" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="size">Size:</label>
+                <select id="size" required>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                </select>
+
+                <label for="door">Door No/Apt:</label>
+                <input type="text" id="door" required>
+
+                <label for="street">Street:</label>
+                <input type="text" id="street" required>
+
+                <label for="village">Village/Town:</label>
+                <input type="text" id="village" required>
+
+                <label for="state">State:</label>
+                <input type="text" id="state" required>
+
+                <label for="pincode">Pincode:</label>
+                <input type="text" id="pincode" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>
