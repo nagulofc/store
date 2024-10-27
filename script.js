@@ -1,31 +1,22 @@
-let cart = [];
-let total = 0;
+const products = {
+    1: { name: "Product 1", price: 29.99, image: "product1.jpg" },
+    2: { name: "Product 2", price: 39.99, image: "product2.jpg" },
+    3: { name: "Product 3", price: 49.99, image: "product3.jpg" },
+    4: { name: "Product 4", price: 59.99, image: "product4.jpg" },
+    5: { name: "Product 5", price: 69.99, image: "product5.jpg" },
+};
 
-function addToCart(productName, price) {
-    cart.push({ name: productName, price: price });
-    updateCart();
-}
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('product');
 
-function updateCart() {
-    const cartItems = document.getElementById('cart-items');
-    const totalElement = document.getElementById('total');
-    const checkoutButton = document.getElementById('checkout');
+if (productId && products[productId]) {
+    const product = products[productId];
+    document.getElementById('product-title').innerText = `Details of ${product.name}`;
+    document.getElementById('product-image').src = product.image;
+    document.getElementById('product-name').innerText = product.name;
+    document.getElementById('product-price').innerText = `$${product.price.toFixed(2)}`;
     
-    cartItems.innerHTML = '';
-    total = 0;
-    
-    cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-        cartItems.appendChild(li);
-        total += item.price;
-    });
-
-    totalElement.textContent = total.toFixed(2);
-    
-    if (cart.length > 0) {
-        checkoutButton.style.display = 'block';
-    } else {
-        checkoutButton.style.display = 'none';
-    }
+    document.getElementById('buy-now').onclick = () => {
+        document.getElementById('checkout-form').style.display = 'block';
+    };
 }
